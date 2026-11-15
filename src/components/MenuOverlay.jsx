@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useRef } from 'react';
 import { gsap } from '../lib/gsap';
+import { APK_DOWNLOAD_URL } from '../lib/download.js';
 
 const LINKS = [
   { route: 'home', index: '01', label: 'Home' },
@@ -73,12 +74,16 @@ export default function MenuOverlay({ open, route, onClose, onNavigate }) {
         <a
           key={link.route}
           className={'m-link' + (route === link.route ? ' on' : '')}
-          href={'#/' + (link.route === 'home' ? '' : link.route)}
-          data-route={link.route}
-          onClick={(event) => {
-            event.preventDefault();
-            onNavigate(link.route);
-          }}
+          href={link.route === 'download' ? APK_DOWNLOAD_URL : '#/' + (link.route === 'home' ? '' : link.route)}
+          data-route={link.route === 'download' ? undefined : link.route}
+          onClick={
+            link.route === 'download'
+              ? undefined
+              : (event) => {
+                  event.preventDefault();
+                  onNavigate(link.route);
+                }
+          }
         >
           <small>{link.index}</small> {link.label}
         </a>

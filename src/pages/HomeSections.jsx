@@ -3,6 +3,7 @@ import Reveal from '../components/Reveal.jsx';
 import { useScrollReveal } from '../lib/usePageAnimations.js';
 import { gsap } from '../lib/gsap';
 import { usePrefersReducedMotion } from '../lib/useMediaQuery';
+import { APK_DOWNLOAD_URL } from '../lib/download.js';
 
 const VALUE_WORDS = ['The', 'world', 'runs', 'on', 'farmers.', 'EarthSync', 'makes', 'every', 'farmer'];
 
@@ -234,12 +235,7 @@ export default function HomeSections({ onNavigate }) {
           <div className="row" data-fade>
             <a
               className="btn-big"
-              href="#/download"
-              data-route="download"
-              onClick={(event) => {
-                event.preventDefault();
-                onNavigate('download');
-              }}
+              href={APK_DOWNLOAD_URL}
             >
               Download the app ↓
             </a>

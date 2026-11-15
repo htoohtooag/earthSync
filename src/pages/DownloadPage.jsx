@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import Reveal from '../components/Reveal.jsx';
 import { usePageIntro, useScrollReveal } from '../lib/usePageAnimations.js';
 import { usePrefersReducedMotion } from '../lib/useMediaQuery';
+import { APK_DOWNLOAD_URL } from '../lib/download.js';
 
 const INSTALL_STEPS = [
   {
@@ -53,12 +54,11 @@ export default function DownloadPage({ ready }) {
             One APK. No account, no ads, no tracking. Open it, pick the demo field, and watch three honest rotation
             plans come out of real NASA climate history — on your own phone, with the math running on-device.
           </p>
-          {/* REPLACE the two placeholder links below with your real APK release URL and GitHub repo URL */}
           <div className="row" data-fade>
             <a
               className="btn-big"
               id="apkBtn"
-              href="https://github.com/your-team/field-shift/releases"
+              href={APK_DOWNLOAD_URL}
               rel="noopener"
             >
               Download APK · Android ↓

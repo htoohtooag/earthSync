@@ -7,6 +7,7 @@ import HomeSections from './HomeSections.jsx';
 import { gsap } from '../lib/gsap';
 import { usePageIntro } from '../lib/usePageAnimations.js';
 import { usePrefersReducedMotion } from '../lib/useMediaQuery';
+import { APK_DOWNLOAD_URL } from '../lib/download.js';
 
 const HeroScene = lazy(() => import('../components/HeroScene.jsx'));
 
@@ -73,12 +74,7 @@ export default function HomePage({ ready, onNavigate, showPhoneIntro }) {
         <div className="hero-cta-row" data-fade>
           <a
             className="btn-pill"
-            href="#/download"
-            data-route="download"
-            onClick={(event) => {
-              event.preventDefault();
-              onNavigate('download');
-            }}
+            href={APK_DOWNLOAD_URL}
           >
             <span className="dot" aria-hidden="true" />Get the app
           </a>

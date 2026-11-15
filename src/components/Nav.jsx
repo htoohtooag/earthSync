@@ -1,3 +1,5 @@
+import { APK_DOWNLOAD_URL } from '../lib/download.js';
+
 const LINKS = [
   { route: 'home', label: 'Home' },
   { route: 'about', label: 'About' },
@@ -53,9 +55,7 @@ export default function Nav({ route, menuOpen, onToggleMenu, onNavigate }) {
       </a>
       <a
         className="btn-pill btn-accent"
-        href="#/download"
-        data-route="download"
-        onClick={(event) => go(event, 'download')}
+        href={APK_DOWNLOAD_URL}
       >
         <span className="dot" aria-hidden="true" />
         Download App
